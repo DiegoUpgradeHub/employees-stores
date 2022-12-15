@@ -1,6 +1,6 @@
 //Requerir paquetes y librerias
 const mongoose = require(`mongoose`);
-const { urlDb } = require('../utils/db');
+const { DB_URL } = require('../utils/db');
 
 //Requerir los modelos
 const Employee = require(`../models/Employee`);
@@ -48,7 +48,7 @@ const employees = [
 const employeeDocuments = employees.map(employee => new Employee(employee));
 mongoose.set('strictQuery', true);
 mongoose
-    .connect(`mongodb://localhost:27017/employees-stores`, {
+    .connect(DB_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })

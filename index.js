@@ -1,7 +1,8 @@
 //Requerir paquetes o librerias
 const express = require(`express`);
 const router = express.Router();
-const {connect} = require(`./utils/db`);
+const { connect } = require(`./utils/db`);
+require('dotenv').config();
 
 //Requerir las rutas y crear variables con ellas
 const employeesRouter = require(`./routes/employee.routes`);
@@ -9,7 +10,7 @@ const storesRouter = require(`./routes/store.routes`);
 
 connect();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const server = express();
 
 //Middlewares

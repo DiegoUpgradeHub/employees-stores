@@ -37,6 +37,12 @@ server.use((error, req, res, next) => {
 	return res.status(error.status || 500).json(error.message || 'Unexpected error');
 });
 
+//Ruta al HTML. Útil para desplegar en Vercel
+server.get("/", (res, req) => {
+    res.sendFile(__dirname + "/index.html");
+
+});
+
 //Listener del servidor
 server.listen(PORT, () => {
     console.log(`Server running in http://localhost:${PORT}`);

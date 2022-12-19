@@ -3,7 +3,7 @@ const mongoose = require(`mongoose`);
 const { DB_URL } = require('../utils/db');
 
 //Requerir los modelos
-const Employee = require('../models/Employee');
+// const Employee = require('../models/Employee');
 const Store = require(`../models/Store`);
 
 //Creación del listado semilla

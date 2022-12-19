@@ -28,6 +28,13 @@ server.use((req, res, next) => {
 });
 server.set("secretKey", "nodeRestApi");
 
+
+
+//Ruta al HTML. Útil para desplegar en Vercel
+server.get("/", (res, req) => {
+    res.sendFiles(__dirname + "/index.html");
+});
+
 //Routes
 server.use(`/employees`, employeesRouter);
 server.use(`/stores`, storesRouter);
@@ -35,12 +42,6 @@ server.use(`/users`, userRouter);
 
 server.use((error, req, res, next) => {
 	return res.status(error.status || 500).json(error.message || 'Unexpected error');
-});
-
-//Ruta al HTML. Útil para desplegar en Vercel
-server.get("/", (res, req) => {
-    res.sendFile(__dirname + "/index.html");
-
 });
 
 //Listener del servidor

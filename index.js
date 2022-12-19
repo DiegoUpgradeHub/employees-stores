@@ -31,9 +31,9 @@ server.set("secretKey", "nodeRestApi");
 
 
 //Ruta al HTML. Útil para desplegar en Vercel
-server.get("/", (res, req) => {
-    res.sendFile(__dirname + "/index.html");
-});
+// server.get("/", (req, res) => {
+//     res.sendFile(__dirname + "/index.html");
+// });
 
 //Routes
 server.use(`/employees`, employeesRouter);

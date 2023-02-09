@@ -35,6 +35,9 @@ server.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
 });
 
+//Ruta para añadir estilos con CSS
+server.use(express.static(__dirname + '/public'))
+
 //Routes
 server.use(`/employees`, employeesRouter);
 server.use(`/stores`, storesRouter);
